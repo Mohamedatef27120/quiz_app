@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../constants/app_colors.dart';
 import '../widgets/custom_button.dart';
-import 'question_single_screen.dart';
+import '../widgets/app_background.dart';
+import 'quiz_screen.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
@@ -9,49 +9,52 @@ class StartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const SizedBox(height: 60),
-            Column(
+      body: AppBackground(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  'Good morning,',
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 18,
-                  ),
-                ),
-                SizedBox(height: 8),
-                Text(
-                  'New topic is waiting',
+              children: [
+                const SizedBox(height: 30),
+
+                const Text(
+                  "Good morning",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 26,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+
+                const SizedBox(height: 8),
+
+                const Text(
+                  "New topic is waiting",
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 32,
+                  ),
+                ),
+
+                const Spacer(),
+
+                CustomButton(
+                  text: "Start Quiz",
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const QuizScreen(),
+                      ),
+                    );
+                  },
+                ),
+
+                const SizedBox(height: 30),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 40.0),
-              child: CustomButton(
-                text: 'Start Quiz',
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const QuestionSingleScreen(),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
