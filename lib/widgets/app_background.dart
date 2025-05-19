@@ -9,14 +9,13 @@ class AppBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        gradient: RadialGradient(
-          center: Alignment(0, 0),
-          radius: 1.2,
-          colors: [
-            Color(0xFF4A1D7A),
-            Color(0xFF1A1F37),
-          ],
-          stops: [0.0, 0.7],
+        image: DecorationImage(
+          image: AssetImage("assets/background.png"),
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(
+            Colors.black,
+            BlendMode.colorDodge,
+          ),
         ),
       ),
       child: child,

@@ -17,7 +17,7 @@ class ThankYouScreen extends StatelessWidget {
                 Icon(
                   Icons.check_circle_outline,
                   size: 100,
-                  color: Colors.greenAccent,
+                  color: Colors.greenAccent
                 ),
                 SizedBox(height: 24),
                 Text(
